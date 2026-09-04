@@ -6,6 +6,19 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* design tokens — tek yerden yönetim, tekrarı azaltır */
+  --bg: #0b0f14;
+  --bg-soft: #0e141b;
+  --border: #202832;
+  --border-soft: #35404c;
+  --text: #e8edf2;
+  --muted: #aeb8c2;
+  --accent: #7c9cff;
+  --radius: 10px;
+  --section-pad: 100px 8%;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -14,9 +27,9 @@ body {
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #0b0f14;
-  color: #e8edf2;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.6;
 }
 
@@ -106,7 +119,7 @@ nav > a:last-child {
 
 .hero-content h1 {
   margin: 20px 0;
-  font-size: clamp(9px, 5vw, 44px);
+  font-size: clamp(28px, 5vw, 44px);
   line-height: 1.05;
 }
 
@@ -374,6 +387,8 @@ footer > p {
 }
 
 
+/* reveal-on-scroll — JS .hidden -> .show */
+section.hidden,
 section {
   opacity: 0;
   transform: translateY(30px);
@@ -383,6 +398,11 @@ section {
 section.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 @media (min-width: 1440px) {

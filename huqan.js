@@ -1,15 +1,9 @@
 
+// html { scroll-behavior: smooth } already handles smooth scrolling —
+// JS fallback removed to avoid double handling; keeping native anchor behavior
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function (e) {
-    const target = document.querySelector(this.getAttribute("href"));
-
-    if (target) {
-      e.preventDefault();
-
-      target.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+  link.addEventListener("click", function () {
+    // let CSS smooth scroll do the work; JS only for reveal, no preventDefault needed
   });
 });
 
