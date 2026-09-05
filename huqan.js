@@ -1,4 +1,19 @@
 
+// mobile nav toggle — fixes nav ul display:none without menu
+const nav = document.querySelector("nav");
+const toggle = document.querySelector(".nav-toggle");
+if (nav && toggle) {
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  // close on link click or outside
+  document.querySelectorAll("nav ul a").forEach(a => a.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  }));
+}
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function (e) {
     const target = document.querySelector(this.getAttribute("href"));
