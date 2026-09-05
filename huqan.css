@@ -40,6 +40,7 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -202,6 +203,7 @@ nav > a:last-child {
   width: 80%;
   max-width: 290px;
   height: 370px;
+  object-fit: cover;
   border-radius: 12px;
 
   -webkit-mask-image:
@@ -1302,7 +1304,13 @@ section.show {
 
 /* hamburger — fixes huqan.css:665 display:none without menu */
 @media (max-width: 768px) {
-  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  nav { position: relative; justify-content: flex-start; }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
   nav ul { display: none; }
   nav.open ul {
     display: flex;
