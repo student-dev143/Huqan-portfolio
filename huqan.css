@@ -98,6 +98,18 @@ nav > a:last-child {
   border-radius: 6px;
 }
 
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid #35404c;
+  color: #e8edf2;
+  font-size: 20px;
+  line-height: 1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
 
 
 #home {
@@ -1286,4 +1298,23 @@ section.show {
     .contact-content h2 {
         font-size: 24px;
     }
+}
+
+/* hamburger — fixes huqan.css:665 display:none without menu */
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+  nav ul { display: none; }
+  nav.open ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0b0f14;
+    border-top: 1px solid #202832;
+    padding: 16px 5%;
+    gap: 14px;
+    z-index: 999;
+  }
 }
