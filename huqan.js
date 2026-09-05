@@ -1,30 +1,9 @@
 
-// mobile nav toggle — fixes nav ul display:none without menu
-const nav = document.querySelector("nav");
-const toggle = document.querySelector(".nav-toggle");
-if (nav && toggle) {
-  toggle.addEventListener("click", () => {
-    const open = nav.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(open));
-  });
-  // close on link click or outside
-  document.querySelectorAll("nav ul a").forEach(a => a.addEventListener("click", () => {
-    nav.classList.remove("open");
-    toggle.setAttribute("aria-expanded", "false");
-  }));
-}
-
+// html { scroll-behavior: smooth } already handles smooth scrolling —
+// JS fallback removed to avoid double handling; keeping native anchor behavior
 document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function (e) {
-    const target = document.querySelector(this.getAttribute("href"));
-
-    if (target) {
-      e.preventDefault();
-
-      target.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+  link.addEventListener("click", function () {
+    // let CSS smooth scroll do the work; JS only for reveal, no preventDefault needed
   });
 });
 
