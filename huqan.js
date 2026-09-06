@@ -9,6 +9,25 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 
 
+// mobile menu — .nav-toggle opens the panel styled by `nav.open ul`
+const navEl = document.querySelector("nav");
+const navToggle = document.querySelector(".nav-toggle");
+
+if (navEl && navToggle) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = navEl.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  navEl.querySelectorAll("#primary-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      navEl.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+
 const sections = document.querySelectorAll("section");
 
 const observer = new IntersectionObserver(
